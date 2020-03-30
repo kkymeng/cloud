@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.db.cloud.dao.JumpPageDao">
+    <resultMap id="Address" type="com.db.cloud.entity.po.Address">
+        <id property="id" column="a_id"></id>
+        <result property="code" column="a_code" ></result>
+        <result property="path" column="a_path" ></result>
+        <result property="mark" column="a_mark" ></result>
+    </resultMap>
+    <select id="getAddressByCode" resultMap="Address" parameterType="String">
+        select * from c_adder where a_code = #{code}
+    </select>
+</mapper>
