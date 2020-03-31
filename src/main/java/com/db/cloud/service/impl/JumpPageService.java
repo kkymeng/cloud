@@ -6,6 +6,8 @@ import com.db.cloud.service.IJumpPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author yunkk
  * @description 跳转实现服务
@@ -19,5 +21,10 @@ public class JumpPageService implements IJumpPageService {
     @Override
     public Address getAddressByCode(String code) {
         return jumpPageDao.getAddressByCode(code);
+    }
+
+    @Override
+    public List<Address> getAllAddress() {
+        return jumpPageDao.getAllAddress();
     }
 }

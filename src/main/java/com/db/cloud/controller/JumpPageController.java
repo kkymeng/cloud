@@ -5,10 +5,9 @@ import com.db.cloud.common.ResultUtil;
 import com.db.cloud.entity.po.Address;
 import com.db.cloud.service.IJumpPageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  *
@@ -28,10 +27,19 @@ public class JumpPageController {
      * @param code
      * @return 接口地址信息
      */
-    @PostMapping("/getAdder")
+    @PostMapping("/getAddr")
     public Result<Address> getAdderByCode(@RequestParam("adderCode")String code){
         Address address = new Address();
         address = jumpPageService.getAddressByCode(code);
         return ResultUtil.success(address);
+    }
+
+    /**
+     * 获取所有Address接口
+     */
+    @GetMapping("/getAllAddr")
+    public Result<List<Address>> getAllAddr(){
+        List<Address> addressList = jumpPageService.getAllAddress();
+        return ResultUtil.success(addressList);
     }
 }

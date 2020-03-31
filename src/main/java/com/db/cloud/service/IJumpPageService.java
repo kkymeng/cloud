@@ -2,6 +2,8 @@ package com.db.cloud.service;
 
 import com.db.cloud.entity.po.Address;
 
+import java.util.List;
+
 /**
  * 跳转页面服务
  * @author yunkk
@@ -14,4 +16,6 @@ public interface IJumpPageService {
      * @return 地址详细信息
      */
     Address getAddressByCode(String code);
+
+    List<Address> getAllAddress();
 }

@@ -7,7 +7,16 @@
         <result property="path" column="a_path" ></result>
         <result property="mark" column="a_mark" ></result>
     </resultMap>
+    <sql id="addr">a_id,a_code,a_path,a_mark</sql>
     <select id="getAddressByCode" resultMap="Address" parameterType="String">
-        select * from c_adder where a_code = #{code}
+        select
+        <include refid="addr"/>
+        from c_adder where a_code = #{code}
+    </select>
+
+    <select id="getAllAddress" resultMap="Address">
+        select
+        <include refid="addr"></include>
+        from c_adder
     </select>
 </mapper>
