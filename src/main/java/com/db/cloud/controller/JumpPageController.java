@@ -42,4 +42,13 @@ public class JumpPageController {
         List<Address> addressList = jumpPageService.getAllAddress();
         return ResultUtil.success(addressList);
     }
+
+    /**
+     * 获取随机地址接口
+     */
+    @GetMapping("/getRoundAddr")
+    public Result<Address> getRoundAddr(){
+        Address address = jumpPageService.getRoundAddr();
+        return ResultUtil.success(address);
+    }
 }

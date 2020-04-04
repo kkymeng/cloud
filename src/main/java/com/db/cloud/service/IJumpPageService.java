@@ -17,5 +17,15 @@ public interface IJumpPageService {
      */
     Address getAddressByCode(String code);
 
+    /***
+     *  获取所有地址
+     * @return
+     */
     List<Address> getAllAddress();
+
+    /**
+     * 获取随机地址
+     * @return
+     */
+    Address getRoundAddr();
 }
