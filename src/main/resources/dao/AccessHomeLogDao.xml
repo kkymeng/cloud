@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.db.cloud.dao.AccessHomeLogDao">
+    <resultMap id="AccessHomeData" type="com.db.cloud.entity.po.AccessHomeData">
+        <id property="homeId" column="home_id"></id>
+        <result property="homeCode" column="home_code" ></result>
+        <result property="homeIp" column="home_name"></result>
+        <result property="homeName" column="home_ip"></result>
+        <result property="remarks" column="remarks"></result>
+        <result property="time" column="home_time"></result>
+    </resultMap>
+    <sql id="addr">
+    home_id,home_code,home_name,home_ip,remarks,home_time
+    </sql>
+
+    <insert id="accessHomeLog" parameterType="com.db.cloud.entity.po.AccessData">
+        insert into c_access_home_log
+        values(null,#{accessHomeData.homeCode},#{accessHomeData.homeName},
+        #{accessHomeData.homeIp},#{accessHomeData.remarks},now())
+    </insert>
+</mapper>

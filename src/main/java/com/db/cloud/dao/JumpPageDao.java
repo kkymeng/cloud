@@ -19,5 +19,9 @@ public interface JumpPageDao {
      */
     Address getAddressByCode(@Param("code") String code);
 
+    /**
+     * 获取所有地址
+     * @return 地址接口
+     */
     List<Address> getAllAddress();
 }

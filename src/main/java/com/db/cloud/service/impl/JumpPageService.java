@@ -23,6 +23,7 @@ public class JumpPageService implements IJumpPageService {
 
     @Override
     public Address getAddressByCode(String code) {
+
         return jumpPageDao.getAddressByCode(code);
     }
 

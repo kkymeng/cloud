@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.db.cloud.dao.AccessLogDao">
+    <resultMap id="AccessData" type="com.db.cloud.entity.po.AccessData">
+        <id property="accessId" column="access_id"></id>
+        <result property="hostName" column="host_name" ></result>
+        <result property="accessArgs" column="access_args"></result>
+        <result property="accessTime" column="access_time"></result>
+        <result property="accessUrl" column="access_url"></result>
+        <result property="accessIp" column="access_ip"></result>
+        <result property="accessType" column="access_type"></result>
+    </resultMap>
+    <sql id="addr">
+    access_id,host_name,access_ip,access_url,
+    access_type,access_args,access_time
+    </sql>
+
+    <insert id="accessLog" parameterType="com.db.cloud.entity.po.AccessData">
+        insert into c_access_log
+        values(null,#{accessData.hostName},#{accessData.accessIp},
+        #{accessData.accessUrl},#{accessData.accessType},#{accessData.accessArgs},now())
+    </insert>
+</mapper>
