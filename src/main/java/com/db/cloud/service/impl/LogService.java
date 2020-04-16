@@ -41,11 +41,11 @@ public class LogService implements ILogService {
     private void checkParamLength(AccessData accessData) {
         String url = accessData.getAccessUrl();
         if(url.length()>URL_LENGTH){
-            accessData.setAccessUrl(url.substring(0,URL_LENGTH));
+            accessData.setAccessUrl(url.substring(url.length()-URL_LENGTH,url.length()));
         }
         String args = accessData.getAccessArgs();
         if(args.length()>ARGS_LENGTH){
-            accessData.setAccessArgs(args.substring(0,ARGS_LENGTH));
+            accessData.setAccessArgs(args.substring(args.length()-ARGS_LENGTH,args.length()));
         }
     }
 
